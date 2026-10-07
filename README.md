@@ -1,2 +1,2 @@
 # Programska oprema pri pouku
-prosim deli omg
+## Snov: Funkcije
