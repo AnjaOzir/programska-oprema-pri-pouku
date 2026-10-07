@@ -1,0 +1,57 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[slovene]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{hyperref}
+
+\title{Programska oprema pri pouku}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Kazalo}
+\begin{itemize}
+	\item \hyperref[sec:pregled-snovi]{Pregled snovi}
+	\item \hyperref[sec:ponovitev]{Ponovitev snovi iz osnovne šole}
+\end{itemize}
+
+\section{Pregled snovi}\label{sec:pregled-snovi}
+
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{0.29\textwidth}|X|}
+	\hline
+	\textbf{Vsebina} & \textbf{Opis} \\
+	\hline
+	Funkcije & Poimenovani bloki kode, ki jih lahko večkrat uporabimo. \\
+	\hline
+	Parametri in argumenti & Vrednosti, ki jih funkciji posredujemo ob klicu. \\
+	\hline
+	Vračanje vrednosti & Funkcija lahko z \texttt{return} vrne rezultat. \\
+	\hline
+	Klic funkcije & Funkcijo izvedemo tako, da napišemo njeno ime in po potrebi podamo argumente. \\
+	\hline
+\end{tabularx}
+
+\section{Ponovitev snovi iz osnovne šole}\label{sec:ponovitev}
+
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{0.29\textwidth}|X|}
+	\hline
+	\textbf{Pojem} & \textbf{Primer ali razlaga} \\
+	\hline
+	Spremenljivka & Ime za shranjeno vrednost, na primer \texttt{stevilo = 5}. \\
+	\hline
+	Podatkovni tipi & Števila, besedilo (nizi) in logične vrednosti (\texttt{True} ali \texttt{False}). \\
+	\hline
+	Računski operatorji & \texttt{+}, \texttt{-}, \texttt{*} in \texttt{/} uporabimo za računanje. \\
+	\hline
+	Pogoj & Z \texttt{if} izberemo, katera koda se izvede glede na pogoj. \\
+	\hline
+	Zanka & Zanka \texttt{for} ali \texttt{while} ponovi izvajanje kode. \\
+	\hline
+\end{tabularx}
+
+\end{document}

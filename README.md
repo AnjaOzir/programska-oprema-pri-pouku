@@ -7,7 +7,7 @@
 
 ## Pregled snovi
 
-| Tema | Kratek opis |
+| Vsebine  opis|
 |---|---|
 | Funkcije | Poimenovani bloki kode, ki jih lahko večkrat uporabimo. |
 | Parametri in argumenti | Vrednosti, ki jih funkciji posredujemo ob klicu. |
