@@ -1,0 +1,48 @@
+\babel@toc {slovene}{}\relax 
+\contentsline {section}{\numberline {1}Učni načrt in cilji}{4}{section.1}%
+\contentsline {section}{\numberline {2}Pojem funkcije}{5}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Kako funkcijo podamo?}{5}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Definicijsko območje}{5}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Osnovni pojmi in odčitavanje grafa}{6}{section.3}%
+\contentsline {section}{\numberline {4}Lastnosti funkcij}{7}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Naraščanje in padanje}{7}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Omejenost}{7}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Ekstremi}{7}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Konveksnost in konkavnost}{7}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Sode in lihe funkcije}{7}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Periodičnost}{8}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.7}Injektivnost in inverzna funkcija}{8}{subsection.4.7}%
+\contentsline {subsection}{\numberline {4.8}Učni načrt: lastnosti funkcij}{8}{subsection.4.8}%
+\contentsline {subsection}{\numberline {4.9}Vaje v slogu maturitetnih nalog: lastnosti}{8}{subsection.4.9}%
+\contentsline {section}{\numberline {5}Potence in potenčne funkcije}{9}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Naravni eksponent}{9}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Negativni celoštevilski eksponent}{9}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Koren in racionalni eksponent}{9}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Premiki in raztegi grafov}{9}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Učni načrt: potenčna funkcija}{10}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Vaje v slogu maturitetnih nalog: potenčna funkcija}{10}{subsection.5.6}%
+\contentsline {section}{\numberline {6}Korenska funkcija}{11}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Učni načrt: korenska funkcija}{11}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Vaje v slogu maturitetnih nalog: korenska funkcija}{11}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Nekaj pomembnih družin funkcij}{12}{section.7}%
+\contentsline {section}{\numberline {8}Postopek raziskovanja funkcije}{13}{section.8}%
+\contentsline {section}{\numberline {9}Predlog zaporedja učnih ur}{14}{section.9}%
+\contentsline {subsection}{\numberline {9.1}1. ura: Ponovitev snovi o funkcijah}{14}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}2. ura: Naraščanje, padanje, predznak funkcije}{14}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}3. ura: Omejenost, sodost, lihost}{14}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}4. ura: Konveksnost, konkavnost}{14}{subsection.9.4}%
+\contentsline {subsection}{\numberline {9.5}5. ura: Vaje}{14}{subsection.9.5}%
+\contentsline {subsection}{\numberline {9.6}6. ura: Transformacije na ravnini}{14}{subsection.9.6}%
+\contentsline {subsection}{\numberline {9.7}7. ura: Transformacije na ravnini}{14}{subsection.9.7}%
+\contentsline {subsection}{\numberline {9.8}8. ura: Transformacije na ravnini -- vaje}{15}{subsection.9.8}%
+\contentsline {subsection}{\numberline {9.9}9. ura: Inverzna funkcija}{15}{subsection.9.9}%
+\contentsline {subsection}{\numberline {9.10}10. ura: Dodatna ura}{15}{subsection.9.10}%
+\contentsline {subsection}{\numberline {9.11}11. ura: Potenčna funkcija z naravnim eksponentom}{15}{subsection.9.11}%
+\contentsline {subsection}{\numberline {9.12}12. ura: Vaje}{15}{subsection.9.12}%
+\contentsline {subsection}{\numberline {9.13}13. ura: Potenčna funkcija z negativnim celim eksponentom}{15}{subsection.9.13}%
+\contentsline {subsection}{\numberline {9.14}14. ura: Vaje}{15}{subsection.9.14}%
+\contentsline {subsection}{\numberline {9.15}15. ura: Korenska funkcija}{15}{subsection.9.15}%
+\contentsline {subsection}{\numberline {9.16}16. ura: Vaje}{15}{subsection.9.16}%
+\contentsline {subsection}{\numberline {9.17}17. ura: Modeliranje s potenčno in korensko funkcijo}{16}{subsection.9.17}%
+\contentsline {section}{\numberline {10}Naloge za utrjevanje}{17}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Kratke rešitve}{20}{subsection.10.1}%
