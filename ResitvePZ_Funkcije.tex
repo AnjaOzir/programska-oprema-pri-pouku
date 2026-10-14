@@ -1,0 +1,160 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[slovene]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=2.2cm,headheight=16pt]{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+
+\definecolor{bordotemno}{RGB}{101,8,34}
+\definecolor{bordosvetlo}{RGB}{153,67,88}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Matematika \textbar\ Funkcije}
+\fancyhead[R]{\small Rešitve preverjanja znanja}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\titleformat{\section}{\large\bfseries\color{bordotemno}}{}{0pt}{}
+\titlespacing*{\section}{0pt}{1.3em}{0.7em}
+\setlist[enumerate]{itemsep=5pt,topsep=4pt}
+
+\begin{document}
+
+\begin{center}
+	{\LARGE\bfseries\color{bordotemno} REŠITVE PREVERJANJA ZNANJA}\par
+	\vspace{2mm}
+	{\large Funkcije \textbar\ Matematika, 2. letnik}
+\end{center}
+
+\noindent\textit{Rešitve vsebujejo možne postopke. Pri računskih nalogah je treba priznati tudi drugačen pravilen postopek.}
+
+\section*{Naloga 1: Pojem funkcije \hfill\normalfont\normalsize(10 točk)}
+\begin{enumerate}[label=\arabic*)]
+	\item Prirejanje je funkcija, če vsakemu elementu $x$ iz definicijskega območja priredi natanko eno vrednost $y$. Dvema različnima argumentoma je lahko prirejena ista vrednost.
+	\item Definicijsko območje $D_f$ je množica vseh dovoljenih argumentov $x$. Zaloga vrednosti $Z_f$ je množica vseh vrednosti $f(x)$, ki jih funkcija dejansko doseže.
+	\item Funkcijo lahko podamo s predpisom, tabelo vrednosti, grafom, besednim opisom ali diagramom prirejanja. Zadoščajo poljubni trije načini.
+\end{enumerate}
+\textbf{Točkovanje:} 3 + 4 + 3 točke.
+
+\newpage
+\section*{Naloga 2: Lastnosti funkcij \hfill\normalfont\normalsize(10 točk)}
+\begin{enumerate}[label=\arabic*)]
+	\item Pred preverjanjem mora biti definicijsko območje simetrično glede na $0$. Nato velja:
+	\[
+		f(-x)=f(x)\quad\Longrightarrow\quad f\text{ je soda},\qquad
+		f(-x)=-f(x)\quad\Longrightarrow\quad f\text{ je liha}.
+	\]
+	\item Graf sode funkcije je simetričen glede na os $y$, graf lihe funkcije pa glede na koordinatno izhodišče.
+	\item Funkcija je injektivna, če različna argumenta vedno določita različni funkcijski vrednosti. Grafični preizkus: vsaka vodoravna premica seka graf največ enkrat.
+	\item Funkcija ima inverzno funkcijo natanko tedaj, ko je injektivna na svojem definicijskem območju. Inverzna funkcija je definirana na zalogi vrednosti prvotne funkcije.
+\end{enumerate}
+\textbf{Točkovanje:} 4 + 2 + 2 + 2 točki.
+
+\newpage
+\section*{Naloga 3: Vrednosti, ničle in definicijsko območje \hfill\normalfont\normalsize(15 točk)}
+\begin{enumerate}[label=\arabic*)]
+	\item Za $f(x)=2x-3$:
+	\[
+		f(-1)=2(-1)-3=-5,\qquad f(0)=2\cdot0-3=-3.
+	\]
+	Ničlo dobimo iz $2x-3=0$, zato je $x=\dfrac32$.
+	\item Pri $g(x)=\sqrt{5-2x}$ mora biti podkoren izraz nenegativen:
+	\[
+		5-2x\geq0\quad\Longrightarrow\quad x\leq\frac52,
+		\qquad D_g=(-\infty,\tfrac52].
+	\]
+	Ničla je tam, kjer je $5-2x=0$, torej $x=\dfrac52$.
+	\item Imenovalec ne sme biti nič:
+	\[
+		x^2-9\ne0\quad\Longrightarrow\quad (x-3)(x+3)\ne0.
+	\]
+	Zato je $D_r=\mathbb{R}\setminus\{-3,3\}$.
+\end{enumerate}
+\textbf{Točkovanje:} 6 + 5 + 4 točke.
+
+\newpage
+\section*{Naloga 4: Raziskovanje kvadratne funkcije \hfill\normalfont\normalsize(20 točk)}
+Dana je $p(x)=x^2-4x+3$.
+\begin{enumerate}[label=\arabic*)]
+	\item Ker je polinom, je $D_p=\mathbb{R}$. Ničle:
+	\[
+		x^2-4x+3=(x-1)(x-3)=0\quad\Longrightarrow\quad x_1=1,\;x_2=3.
+	\]
+	\item Parabola je obrnjena navzgor. Zato je $p(x)>0$ za $x\in(-\infty,1)\cup(3,\infty)$, $p(x)<0$ za $x\in(1,3)$, pri $x=1$ in $x=3$ pa je $p(x)=0$.
+	\item Dopolnimo do kvadrata:
+	\[
+		p(x)=x^2-4x+4-1=(x-2)^2-1.
+	\]
+	Temenska oblika je $(x-2)^2-1$, teme je $T(2,-1)$, najmanjša vrednost pa $-1$.
+	\item Ker je teme pri $x=2$ in parabola odprta navzgor, funkcija pada na $(-\infty,2]$ ter narašča na $[2,\infty)$. Zaloga vrednosti je $Z_p=[-1,\infty)$.
+\end{enumerate}
+\textbf{Točkovanje:} 4 + 4 + 6 + 6 točk.
+
+\newpage
+\section*{Naloga 5: Premik in razteg grafa \hfill\normalfont\normalsize(20 točk)}
+Dana je $h(x)=-2(x-1)^3+4$.
+\begin{enumerate}[label=\arabic*)]
+	\item Iz grafa $y=x^3$ najprej dobimo $y=(x-1)^3$ s premikom za $1$ v desno. Množenje z $-2$ pomeni navpični razteg s faktorjem $2$ in zrcaljenje čez os $x$. Prištevanje $4$ graf premakne za $4$ navzgor.
+	\item Kubična funkcija ima definicijsko območje in zalogo vrednosti $\mathbb{R}$. Ti lastnosti ohranijo tudi premiki, razteg in zrcaljenje, zato $D_h=Z_h=\mathbb{R}$.
+	\item Začetna vrednost:
+	\[
+		h(0)=-2(0-1)^3+4=6.
+	\]
+	Ničla:
+	\[
+		-2(x-1)^3+4=0\quad\Longrightarrow\quad (x-1)^3=2
+		\quad\Longrightarrow\quad x=1+\sqrt[3]{2}.
+	\]
+	Presečišči z osema sta $(0,6)$ in $(1+\sqrt[3]{2},0)$.
+	\item Za skico označimo še prevoj $T(1,4)$ in uporabimo značilne točke, na primer:
+	\[
+		h(-1)=20,\quad h(0)=6,\quad h(1)=4,\quad h(2)=2,\quad h(3)=-12.
+	\]
+	Graf je padajoča kubična krivulja v obliki črke S; poteka skozi navedene točke, zlasti skozi presečišči z osema in prevoj.
+\end{enumerate}
+\textbf{Točkovanje:} 5 + 2 + 5 + 8 točk.
+
+\newpage
+\section*{Naloga 6: Koreni in racionalne funkcije \hfill\normalfont\normalsize(25 točk)}
+\begin{enumerate}[label=\arabic*)]
+	\item Pogoj za obstoj korena je $2x+3\geq0$. Ker je desna stran enačbe koren, mora veljati tudi $x\geq0$. Enačbo kvadriramo:
+	\[
+		\sqrt{2x+3}=x\quad\Longrightarrow\quad 2x+3=x^2
+		\quad\Longrightarrow\quad (x-3)(x+1)=0.
+	\]
+	Kandidata sta $x=3$ in $x=-1$, vendar pogoj $x\geq0$ izpolnjuje le $x=3$. Preverjanje: $\sqrt{2\cdot3+3}=\sqrt9=3$. Rešitev je $\boxed{x=3}$.
+	\item Dana je $q(x)=\dfrac{1}{x^2-4}$.
+	\begin{enumerate}[label=\alph*)]
+		\item Imenovalec ne sme biti nič, zato
+		\[
+			D_q=\mathbb{R}\setminus\{-2,2\}.
+		\]
+		Navpični asimptoti sta $x=-2$ in $x=2$, vodoravna asimptota pa $y=0$.
+		Za zalogo vrednosti naj bo $u=x^2\geq0$, pri čemer $u\ne4$. Če je $0\leq u<4$, potem $q=1/(u-4)\in(-\infty,-1/4]$; če je $u>4$, potem $q\in(0,\infty)$. Torej
+		\[
+			Z_q=(-\infty,-\tfrac14]\cup(0,\infty).
+		\]
+		\item Območje je simetrično glede na $0$ in
+		\[
+			q(-x)=\frac{1}{(-x)^2-4}=\frac{1}{x^2-4}=q(x),
+		\]
+		zato je $q$ soda.
+		\item Rešimo neenačbo:
+		\[
+			\frac{1}{x^2-4}\geq\frac15
+			\quad\Longleftrightarrow\quad
+			\frac{9-x^2}{5(x^2-4)}\geq0.
+		\]
+		Kritične vrednosti so $-3,-2,2,3$. Vrednosti $-2$ in $2$ izločimo iz definicijskega območja; pri $-3$ in $3$ je izraz enak nič. Predznak izraza je nenegativen na $[-3,-2)$ in $(2,3]$. Zato je rešitev
+		\[
+			\boxed{x\in[-3,-2)\cup(2,3]}.
+		\]
+	\end{enumerate}
+\end{enumerate}
+\textbf{Točkovanje:} 10 + 8 + 2 + 5 točk.
+
+\end{document}
