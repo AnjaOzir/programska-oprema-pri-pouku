@@ -1,0 +1,132 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[slovene]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=2cm,headheight=16pt]{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+
+\definecolor{bordotemno}{RGB}{101,8,34}
+\definecolor{bordosvetlo}{RGB}{153,67,88}
+\definecolor{svetloroz}{RGB}{255,243,245}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Matematika \textbar\ Funkcije}
+\fancyhead[R]{\small Preverjanje znanja}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlist[enumerate,1]{label=\alph*),leftmargin=*,itemsep=5pt,topsep=3pt}
+\setlist[itemize]{leftmargin=*,itemsep=2pt,topsep=2pt}
+\titleformat{\section}{\large\bfseries\color{bordotemno}}{}{0pt}{}
+\titlespacing*{\section}{0pt}{1.3em}{0.5em}
+
+\newcommand{\naloga}[3]{%
+	\section*{Naloga #1: #2 \hfill\normalfont\normalsize(#3 točk)}%
+}
+\newcommand{\odgovor}[1]{\par\noindent\rule{\linewidth}{0.35pt}\par\vspace{#1}}
+
+\begin{document}
+
+\begin{center}
+	{\LARGE\bfseries\color{bordotemno} PREVERJANJE ZNANJA}\par
+	\vspace{2mm}
+	{\large Funkcije \textbar\ Matematika, 2. letnik}
+\end{center}
+
+\vspace{3mm}
+\noindent
+\fcolorbox{bordotemno}{svetloroz}{%
+	\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{%
+		\textbf{Ime:} \rule{0.31\linewidth}{0.4pt}\hfill
+		\textbf{Priimek:} \rule{0.31\linewidth}{0.4pt}\par\vspace{5mm}
+		\textbf{Razred:} \rule{0.20\linewidth}{0.4pt}\hfill
+		\textbf{Datum:} \rule{0.25\linewidth}{0.4pt}\hfill
+		\textbf{Točke:} \rule{1.1cm}{0.4pt} / 100
+	}%
+}
+
+\vspace{4mm}
+\noindent\textbf{Navodila:} Preberi vsako nalogo in zapiši postopek. Odgovore utemelji, kjer je to zahtevano.\
+\textbf{Skupaj: 100 točk.} Nalogi 1 in 2 sta teoretični.
+
+\naloga{1}{Pojem funkcije}{10}
+\begin{enumerate}
+	\item Pojasni, kaj mora veljati, da je prirejanje funkcija. \hfill(3 t)
+	\item Razloži razliko med definicijskim območjem in zalogo vrednosti funkcije. \hfill(4 t)
+	\item Naštej tri načine, na katere lahko podamo funkcijo. \hfill(3 t)
+\end{enumerate}
+\odgovor{6cm}
+
+\newpage
+\naloga{2}{Lastnosti funkcij}{10}
+\begin{enumerate}
+	\item Zapiši pogoj, po katerem prepoznamo sodo oziroma liho funkcijo. \hfill(4 t)
+	\item Opiši simetrijo grafa sode in grafa lihe funkcije. \hfill(2 t)
+	\item Kaj pomeni, da je funkcija injektivna?  \hfill(2 t)
+	\item Kdaj ima funkcija inverzno funkcijo? \hfill(2 t)
+\end{enumerate}
+\odgovor{7cm}
+
+\newpage
+\naloga{3}{Vrednosti, ničle in definicijsko območje}{15}
+Naj bo $f(x)=2x-3$ in $g(x)=\sqrt{5-2x}$.
+\begin{enumerate}
+	\item Izračunaj $f(-1)$ in $f(0)$ ter določi ničlo funkcije $f$. \hfill(6 t)
+	\item Določi definicijsko območje funkcije $g$ in njeno ničlo. \hfill(5 t)
+	\item Določi definicijsko območje funkcije $r(x)=\dfrac{x+1}{x^2-9}$. \hfill(4 t)
+\end{enumerate}
+\odgovor{7cm}
+
+\newpage
+\naloga{4}{Raziskovanje kvadratne funkcije}{20}
+Dana je funkcija $p(x)=x^2-4x+3$.
+\begin{enumerate}
+	\item Določi definicijsko območje in ničle funkcije. \hfill(4 t)
+	\item Določi intervale, na katerih je funkcija pozitivna oziroma negativna. \hfill(4 t)
+	\item Zapiši funkcijo v temenski obliki ter določi teme in najmanjšo vrednost. \hfill(6 t)
+	\item Določi intervala naraščanja in padanja ter zapiši zalogo vrednosti. \hfill(6 t)
+\end{enumerate}
+\odgovor{7cm}
+
+\newpage
+\naloga{5}{Premik in razteg grafa}{20}
+Funkcijo $h(x)=-2(x-1)^3+4$ dobimo s preoblikovanjem grafa $y=x^3$.
+\begin{enumerate}
+	\item Opiši zaporedoma vse premike, raztege ali zrcaljenja grafa. \hfill(5 t)
+	\item Določi definicijsko območje in zalogo vrednosti funkcije $h$. \hfill(2 t)
+	\item Izračunaj začetno vrednost $h(0)$ in določi ničlo funkcije. \hfill(5 t)
+	\item V spodnji koordinatni sistem skiciraj graf funkcije $h$. Označi ničlo in presečišče z osjo $y$. \hfill(8 t)
+\end{enumerate}
+\vspace{2mm}
+\begin{center}
+\setlength{\unitlength}{1mm}
+\begin{picture}(155,67)
+	\put(8,20){\vector(1,0){139}}
+	\put(64,4){\vector(0,1){58}}
+	\multiput(14,18)(10,0){13}{\line(0,1){4}}
+	\multiput(62,5)(0,5){12}{\line(1,0){4}}
+	\put(146,16){$x$}
+	\put(80,62){$y$}
+	\put(66,16){$0$}
+\end{picture}
+\end{center}
+
+\newpage
+\naloga{6}{Koreni, racionalne funkcije in uporaba}{25}
+\begin{enumerate}
+	\item Reši enačbo $\sqrt{2x+3}=x$. Zapiši pogoj za obstoj, preveri dobljene rešitve in navedi končno rešitev. \hfill(10 t)
+	\item Dana je funkcija $q(x)=\dfrac{1}{x^2-4}$. Določi njeno definicijsko območje, asimptote in sodost oziroma lihost. Nato reši neenačbo $q(x)>0$. \hfill(10 t)
+	\item Ploščina kvadrata je $P$. Zapiši dolžino njegove stranice kot funkcijo ploščine. Nato izračunaj, za koliko se spremeni dolžina stranice, če se ploščina poveča z $9\,\mathrm{m}^2$ na $36\,\mathrm{m}^2$. \hfill(5 t)
+\end{enumerate}
+\odgovor{7cm}
+
+\vfill
+\noindent\textcolor{bordosvetlo}{\rule{\linewidth}{0.6pt}}\\[-1mm]
+\small Pred oddajo preveri računske postopke in ali si odgovoril/-a na vse dele nalog.
+
+\end{document}
