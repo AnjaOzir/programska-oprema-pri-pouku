@@ -8,23 +8,14 @@
 \contentsline {subsection}{\numberline {4.1}Naraščanje in padanje}{6}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Omejenost}{6}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Ekstremi}{6}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Konveksnost in konkavnost}{6}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Sode in lihe funkcije}{6}{subsection.4.5}%
-\contentsline {subsection}{\numberline {4.6}Periodičnost}{7}{subsection.4.6}%
-\contentsline {subsection}{\numberline {4.7}Injektivnost in inverzna funkcija}{7}{subsection.4.7}%
-\contentsline {subsection}{\numberline {4.8}Učni načrt: lastnosti funkcij}{7}{subsection.4.8}%
-\contentsline {subsection}{\numberline {4.9}Vaje v slogu maturitetnih nalog: lastnosti}{7}{subsection.4.9}%
-\contentsline {section}{\numberline {5}Potence in potenčne funkcije}{8}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Naravni eksponent}{8}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Negativni celoštevilski eksponent}{8}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Koren in racionalni eksponent}{8}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Premiki in raztegi grafov}{8}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}Učni načrt: potenčna funkcija}{9}{subsection.5.5}%
-\contentsline {subsection}{\numberline {5.6}Vaje v slogu maturitetnih nalog: potenčna funkcija}{9}{subsection.5.6}%
-\contentsline {section}{\numberline {6}Korenska funkcija}{10}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Učni načrt: korenska funkcija}{10}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Vaje v slogu maturitetnih nalog: korenska funkcija}{10}{subsection.6.2}%
-\contentsline {section}{\numberline {7}Nekaj pomembnih družin funkcij}{11}{section.7}%
-\contentsline {section}{\numberline {8}Postopek raziskovanja funkcije}{12}{section.8}%
-\contentsline {section}{\numberline {9}Naloge za utrjevanje}{13}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Kratke rešitve}{16}{subsection.9.1}%
+\contentsline {subsection}{\numberline {4.4}Konveksnost in konkavnost}{7}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Sode in lihe funkcije}{7}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Periodičnost}{8}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.7}Injektivnost in inverzna funkcija}{8}{subsection.4.7}%
+\contentsline {subsection}{\numberline {4.8}Učni načrt: lastnosti funkcij}{8}{subsection.4.8}%
+\contentsline {subsection}{\numberline {4.9}Vaje v slogu maturitetnih nalog: lastnosti}{8}{subsection.4.9}%
+\contentsline {section}{\numberline {5}Premiki in raztegi grafov}{10}{section.5}%
+\contentsline {section}{\numberline {6}Nekaj pomembnih družin funkcij}{11}{section.6}%
+\contentsline {section}{\numberline {7}Postopek raziskovanja funkcije}{12}{section.7}%
+\contentsline {section}{\numberline {8}Naloge za utrjevanje}{13}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Kratke rešitve}{18}{subsection.8.1}%

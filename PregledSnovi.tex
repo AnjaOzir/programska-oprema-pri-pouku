@@ -54,12 +54,21 @@
 \titlespacing*{\subsection}{0pt}{3.5ex plus .8ex minus .2ex}{1.8ex plus .2ex}
 \titlespacing*{\subsubsection}{0pt}{2.8ex plus .6ex minus .2ex}{1.3ex plus .2ex}
 
-\newcommand{\vajaGraf}[6]{%
+\newcommand{\vajaGraf}[7]{%
+	\pgfmathsetlengthmacro{\vajaSirinaOsi}{0.48cm*((#3)-(#2))}%
+	\pgfmathsetlengthmacro{\vajaVisinaOsi}{0.48cm*((#5)-(#4))}%
 	\par\smallskip
 	\begin{center}
 		\begin{tikzpicture}
-			\begin{axis}[graphstyle,title={#1},xmin=#2,xmax=#3,ymin=#4,ymax=#5]
-				\addplot[blue,thick,domain=#2:#3]{#6};
+			\begin{axis}[
+				graphstyle,
+				scale only axis,
+				axis equal image,
+				width=\vajaSirinaOsi,
+				height=\vajaVisinaOsi,
+				title={#1},xmin=#2,xmax=#3,ymin=#4,ymax=#5
+			]
+				\addplot[blue,thick,domain=#7]{#6};
 			\end{axis}
 		\end{tikzpicture}
 	\end{center}
@@ -67,11 +76,88 @@
 }
 
 \newcommand{\prazenKoordinatniSistem}[4]{%
+	\pgfmathsetlengthmacro{\vajaSirinaOsi}{0.48cm*((#2)-(#1))}%
+	\pgfmathsetlengthmacro{\vajaVisinaOsi}{0.48cm*((#4)-(#3))}%
 	\par\smallskip
 	\begin{center}
 	\begin{tikzpicture}
-	\begin{axis}[graphstyle,xmin=#1,xmax=#2,ymin=#3,ymax=#4]
+	\begin{axis}[
+		graphstyle,
+		scale only axis,
+		axis equal image,
+		width=\vajaSirinaOsi,
+		height=\vajaVisinaOsi,
+		xmin=#1,xmax=#2,ymin=#3,ymax=#4
+	]
 	\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	\smallskip
+}
+
+\newcommand{\primerjalniGraf}[5]{%
+	\par\smallskip
+	\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+			graphstyle,
+			scale only axis,
+			axis equal image,
+			width=6cm,
+			height=6cm,
+			xmin=#2,xmax=#3,ymin=#2,ymax=#3,
+			title={#1},
+			legend pos=outer north east,
+			legend style={font=\small,draw=none,fill=none}
+		]
+			#4
+		\end{axis}
+	\end{tikzpicture}
+	\end{center}
+	\smallskip\noindent\textit{#5}\par\smallskip
+}
+
+\newcommand{\grafDruzine}[6]{%
+	\begin{minipage}[t]{0.49\textwidth}
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+			width=6.2cm,
+			height=3.4cm,
+			axis lines=middle,
+			grid=major,
+			grid style={gray!20},
+			tick label style={font=\tiny},
+			label style={font=\tiny},
+			title style={font=\scriptsize},
+			xlabel={$x$},ylabel={$y$},
+			xmin=#2,xmax=#3,ymin=#4,ymax=#5,
+			samples=100,clip=true,
+			title={#1}
+		]
+			#6
+		\end{axis}
+	\end{tikzpicture}
+	\end{minipage}%
+}
+
+\newcommand{\grafLastnosti}[2]{%
+	\par\smallskip
+	\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+			graphstyle,
+			width=0.68\textwidth,
+			height=4cm,
+			xmin=-6.5,xmax=6.5,ymin=-1.5,ymax=1.5,
+			xtick={-6.283,-3.142,0,3.142,6.283},
+			xticklabels={$-2\pi$,$-\pi$,0,$\pi$,$2\pi$},
+			ytick={-1,0,1},
+			title={#1}
+		]
+			\addplot[blue,thick,domain=-6.5:6.5,samples=200]{sin(deg(x))};
+			#2
+		\end{axis}
 	\end{tikzpicture}
 	\end{center}
 	\smallskip
@@ -163,25 +249,55 @@ Pri skici grafa najprej določimo definicijsko območje, ničle, presečišče z
 \clearpage
 \section{Lastnosti funkcij}
 
+\begin{vsebinskiokvir}
+Na vseh spodnjih skicah je ista funkcija $f(x)=\sin x$, da lahko primerjamo njene različne lastnosti. Modra črta je osnovni graf; zelena označuje naraščajoče oziroma konveksne dele, oranžna konkavne dele, rdeča pa poudari obravnavano lastnost (na primer padajoče dele, meje, ekstreme ali točke vodoravnega preizkusa). Črtkane črte in puščice so pomožne oznake; njihov pomen je dopisan na posamezni skici.
+\end{vsebinskiokvir}
+
 \subsection{Naraščanje in padanje}
 
 Funkcija je na intervalu naraščajoča, če za $x_1<x_2$ velja $f(x_1)\leq f(x_2)$; strogo naraščajoča je, če velja stroga neenačba. Padajočo funkcijo opredelimo z obrnjenim vrstnim redom vrednosti. Monotonost lahko velja na celotnem definicijskem območju ali le na posameznih intervalih.
+\grafLastnosti{Ista funkcija $f(x)=\sin x$: intervali naraščanja in padanja}{%
+	\addplot[green!50!black,very thick,domain=-1.5708:1.5708,samples=40]{sin(deg(x))};
+	\addplot[green!50!black,very thick,domain=4.7124:6.2832,samples=40]{sin(deg(x))};
+	\addplot[red,very thick,domain=-4.7124:-1.5708,samples=40]{sin(deg(x))};
+	\addplot[red,very thick,domain=1.5708:4.7124,samples=40]{sin(deg(x))};
+}
+\par\smallskip\noindent\textit{Zeleni odseki prikazujejo intervale, na katerih funkcija narašča, rdeči pa intervale, na katerih pada.}
 
 \subsection{Omejenost}
 
 Funkcija je navzgor omejena, če obstaja število $M$, za katero je $f(x)\leq M$ za vsak $x\in D_f$. Navzdol omejena je, če obstaja $m$, da je $f(x)\geq m$. Omejena je, če je omejena navzgor in navzdol.
 
-Primer: $f(x)=x^2$ je navzdol omejena z $0$, navzgor pa ni omejena. Funkcija $g(x)=\sin x$ je omejena, saj velja $-1\leq g(x)\leq 1$.
+\grafLastnosti{Ista funkcija $f(x)=\sin x$: omejenost}{%
+	\addplot[red,dashed,thick,domain=-6.5:6.5,samples=2]{1};
+	\addplot[red,dashed,thick,domain=-6.5:6.5,samples=2]{-1};
+	\node[anchor=west,font=\tiny,red] at (axis cs:4.8,1.12) {$M=1$};
+	\node[anchor=west,font=\tiny,red] at (axis cs:4.8,-1.12) {$m=-1$};
+}
+\par\smallskip\noindent\textit{Graf leži med rdečima črtkanima premicama $y=1$ in $y=-1$, zato velja $-1\leq f(x)\leq 1$.}
 
 \subsection{Ekstremi}
 
-Vrednost $f(a)$ je maksimum, če velja $f(x)\leq f(a)$ za vse $x\in D_f$; minimum določimo analogno. Lokalni ekstrem je največja ali najmanjša vrednost le v bližnji okolici točke. Ekstrem ni nujno dosežen: na primer $f(x)=x$ na intervalu $(0,1)$ nima minimuma niti maksimuma.
+Vrednost $f(a)$ je maksimum, če velja $f(x)\leq f(a)$ za vse $x\in D_f$; minimum določimo analogno. Lokalni ekstrem je največja ali najmanjša vrednost le v bližnji okolici točke. Infimum in supremum nista nujno dosežena: na primer $f(x)=x$ na intervalu $(0,1)$ nima minimuma niti maksimuma, čeprav je njen infimum $0$ in supremum $1$.
+\grafLastnosti{Ista funkcija $f(x)=\sin x$: maksimumi in minimumi}{%
+	\addplot[only marks,mark=*,mark size=2pt,red] coordinates {(-4.7124,1) (1.5708,1) (-1.5708,-1) (4.7124,-1)};
+	\node[font=\tiny,anchor=south] at (axis cs:1.5708,1) {maksimum};
+	\node[font=\tiny,anchor=north] at (axis cs:4.7124,-1) {minimum};
+}
+\par\smallskip\noindent\textit{Rdeče označene točke so maksimumi z vrednostjo $1$ in minimumi z vrednostjo $-1$.}
 
 \subsection{Konveksnost in konkavnost}
 
-Na intervalu je funkcija konveksna, če daljica med poljubnima točkama njenega grafa leži nad grafom ali na njem. Konkavna je, če daljica leži pod grafom ali na njem. Pri konveksni funkciji se nakloni sekantnih premic z leve proti desni ne zmanjšujejo; pri konkavni se ne povečujejo. Na primer, $f(x)=x^2$ je konveksna na $\mathbb{R}$, $g(x)=-x^2$ pa konkavna. Če so odvodi že obravnavani, lahko konveksnost na intervalu preverimo z $f''(x)\geq 0$, konkavnost pa z $f''(x)\leq 0$.
+Na intervalu je funkcija konveksna, če daljica med poljubnima točkama njenega grafa leži nad grafom ali na njem. Konkavna je, če daljica leži pod grafom ali na njem. Pri konveksni funkciji se nakloni sekantnih premic z leve proti desni ne zmanjšujejo; pri konkavni se ne povečujejo. Na primer, $f(x)=x^2$ je konveksna na $\mathbb{R}$, $g(x)=-x^2$ pa konkavna. Če je funkcija na intervalu dvakrat odvedljiva, lahko konveksnost preverimo z $f''(x)\geq 0$, konkavnost pa z $f''(x)\leq 0$.
 
 Prevoj je točka, v kateri se graf spremeni iz konveksnega v konkavnega ali obratno. Sama sprememba predznaka drugega odvoda je lahko dokaz prevoja, vendar je treba preveriti, da se konveksnost oziroma konkavnost na tej točki dejansko zamenja.
+\grafLastnosti{Ista funkcija $f(x)=\sin x$: konveksnost, konkavnost in prevoj}{%
+	\addplot[green!50!black,very thick,domain=-3.1416:0,samples=50]{sin(deg(x))};
+	\addplot[orange!90!black,very thick,domain=0:3.1416,samples=50]{sin(deg(x))};
+	\addplot[only marks,mark=*,mark size=2pt,red] coordinates {(0,0)};
+	\node[font=\tiny,anchor=north east] at (axis cs:0,0) {prevoj};
+}
+\par\smallskip\noindent\textit{Zeleni del je konveksen, oranžni konkaven; rdeča točka pri $x=0$ označuje prevoj.}
 
 \subsection{Sode in lihe funkcije}
 
@@ -191,14 +307,32 @@ Definicijsko območje mora biti simetrično glede na $0$ (če je $x$ v območju,
 	f(-x)=-f(x)&\quad\Longrightarrow\quad \text{funkcija je liha}.
 \end{align*}
 Graf sode funkcije je simetričen glede na os $y$, graf lihe funkcije pa glede na koordinatno izhodišče. Primeri: $x^2$ in $|x|$ sta sodi; $x^3$ in $\frac{1}{x}$ (na svojem območju) sta lihi. Funkcija je lahko tudi niti soda niti liha.
+\grafLastnosti{Ista funkcija $f(x)=\sin x$: liha funkcija}{%
+	\addplot[only marks,mark=*,mark size=2pt,red] coordinates {(-1.5708,-1) (1.5708,1)};
+	\draw[red,dashed,thick,-latex] (axis cs:-1.5708,-1) -- (axis cs:0,0);
+	\draw[red,dashed,thick,-latex] (axis cs:0,0) -- (axis cs:1.5708,1);
+	\node[font=\tiny,anchor=north west] at (axis cs:0.3,-0.35) {simetrija glede na izhodišče};
+}
+\par\smallskip\noindent\textit{Rdeči točki sta nasprotni glede na izhodišče, kar ponazarja lihost: $f(-x)=-f(x)$.}
 
 \subsection{Periodičnost}
 
-Funkcija je periodična, če obstaja $T>0$, da za vsak $x$ iz definicijskega območja velja $f(x+T)=f(x)$ (kjer sta obe vrednosti določeni). Najmanjše tako pozitivno število je osnovna perioda. Funkciji $\sin x$ in $\cos x$ imata periodo $2\pi$.
+Funkcija je periodična, če obstaja $T>0$, za katerega je definicijsko območje nespremenjeno pri premiku za $T$ ($D_f+T=D_f$) in za vsak $x\in D_f$ velja $f(x+T)=f(x)$. Najmanjše tako pozitivno število je osnovna perioda. Funkciji $\sin x$ in $\cos x$ imata periodo $2\pi$.
+\grafLastnosti{Ista funkcija $f(x)=\sin x$: perioda $T=2\pi$}{%
+	\addplot[only marks,mark=*,mark size=2pt,red] coordinates {(-1.5708,-1) (4.7124,-1)};
+	\draw[red,<->,thick] (axis cs:-1.5708,-1.3) -- (axis cs:4.7124,-1.3)
+		node[midway,below,font=\tiny] {$T=2\pi$};
+}
+\par\smallskip\noindent\textit{Razdalja med zaporednima enakima minimumoma je $2\pi$, zato je osnovna perioda funkcije sinus $T=2\pi$.}
 
 \subsection{Injektivnost in inverzna funkcija}
 
 Funkcija je injektivna, če različna argumenta vedno določita različni vrednosti. Graf prestane preizkus z vodoravno premico, če ga vsaka vodoravna premica seka največ enkrat. Injektivna funkcija ima obratno funkcijo na svoji zalogi vrednosti; vloga argumenta in vrednosti se zamenja. Pri funkciji $f(x)=2x+1$ je $f^{-1}(x)=\frac{x-1}{2}$.
+\grafLastnosti{Ista funkcija $f(x)=\sin x$: vodoravni preizkus za injektivnost}{%
+	\addplot[red,dashed,thick,domain=-6.5:6.5,samples=2]{0.5};
+	\addplot[only marks,mark=*,mark size=2pt,red] coordinates {(-3.6652,0.5) (0.5236,0.5) (2.6180,0.5)};
+}
+\par\smallskip\noindent\textit{Črtkana vodoravna premica graf seka v več točkah, zato funkcija na celotnem definicijskem območju ni injektivna.}
 
 \subsection{Učni načrt: lastnosti funkcij}
 
@@ -207,49 +341,16 @@ Pri tej temi dijak/-inja iz grafa in predpisa določi intervale naraščanja in 
 \subsection{Vaje v slogu maturitetnih nalog: lastnosti}
 
 Naslednje naloge so izvirne vaje za ponavljanje in niso prepisana uradna vprašanja iz mature 2024.
-\begin{enumerate}
+\begin{enumerate}[itemsep=1em,topsep=1em]
 	\item Za $f(x)=|x-2|$ določi ničlo, zalogo vrednosti, intervale monotonosti in preveri, ali je funkcija soda ali liha.
 	\item Skiciraj $g(x)=\frac{1}{x^2+1}$ ter iz grafa oziroma predpisa določi območje, zalogo vrednosti, omejenost in sodost.
 	\item Opiši konveksnost funkcije $h(x)=x^2-4x+1$ in določi njeno najmanjšo vrednost.
 \end{enumerate}
+\medskip
 
 \clearpage
-\section{Potence in potenčne funkcije}
-\begin{vsebinskiokvir}
 
-Potenčna funkcija ima predpis
-\[
-	f(x)=x^n,
-\]
-kjer je eksponent $n$ izbrano realno ali celo število. Oblika grafa in definicijsko območje sta odvisna od eksponenta.
-\end{vsebinskiokvir}
-
-\subsection{Naravni eksponent}
-
-Za $n\in\mathbb{N}$:
-\begin{itemize}
-	\item če je $n$ sod, je $x^n\geq 0$, funkcija je soda; pada na $(-\infty,0]$ in narašča na $[0,\infty)$; minimum je $0$;
-	\item če je $n$ lih, je funkcija liha in strogo narašča na $\mathbb{R}$; njena zaloga vrednosti je $\mathbb{R}$.
-\end{itemize}
-V obeh primerih je $D_f=\mathbb{R}$. Primeri osnovnih oblik sta parabolični graf $y=x^2$ in kubični graf $y=x^3$.
-
-\subsection{Negativni celoštevilski eksponent}
-
-Za $n\in\mathbb{N}$ velja
-\[
-	x^{-n}=\frac{1}{x^n},\qquad D_f=\mathbb{R}\setminus\{0\}.
-\]
-Graf ne seka osi $x$ in $y$. Premici $x=0$ in $y=0$ sta asimptoti. Funkcija $x^{-n}$ je soda za sod $n$ in liha za lih $n$. Na primer, $y=\frac1{x^2}$ je pozitivna in soda, $y=\frac1x$ pa liha.
-
-\subsection{Koren in racionalni eksponent}
-
-Za pozitivni celi števili $m,n$ in ustrezno določeno realno potenco velja
-\[
-	x^{m/n}=\sqrt[n]{x^m}.
-\]
-Pri sodem korenu mora biti korenjenec nenegativen; pri lihih korenih so dovoljene tudi negativne vrednosti. Vedno upoštevamo tudi, ali je potenca v imenovalcu ulomka. Primeri: $\sqrt{x}$ ima območje $[0,\infty)$, medtem ko je kubični koren $\sqrt[3]{x}$ določen za vsak $x\in\mathbb{R}$.
-
-\subsection{Premiki in raztegi grafov}
+\section{Premiki in raztegi grafov}
 
 Iz grafa $y=f(x)$ dobimo:
 \begin{itemize}
@@ -259,74 +360,75 @@ Iz grafa $y=f(x)$ dobimo:
 	\item $y=f(-x)$: zrcaljenje čez os $y$.
 \end{itemize}
 Pri vodoravnih spremembah predznak v oklepaju pogosto deluje nasprotno od pričakovanja: $f(x-3)$ je premik v desno za $3$.
+\primerjalniGraf{Vpliv premika na graf kvadratne funkcije}{-2}{8}{%
+	\addplot[blue,thick,domain=-2:2.8284,samples=100]{x^2};
+	\addlegendentry{$y=x^2$}
+	\addplot[red,thick,domain=0.5505:5.4495,samples=100]{(x-3)^2+2};
+	\addlegendentry{$y=(x-3)^2+2$}
+}{Rdeči graf je modri graf premaknjen za $3$ enote v desno in za $2$ enoti navzgor.}
 
-\subsection{Učni načrt: potenčna funkcija}
-
-Dijak/-inja primerja grafe $x^n$ za sode in lihe naravne eksponente ter grafe $x^{-n}$ za negativne cele eksponente. Za izbrano potenčno funkcijo določi definicijsko območje, zalogo vrednosti, ničle, simetrijo, monotonost, omejenost in asimptote, kadar obstajajo. Zna uporabiti potence in premike grafa pri reševanju enačb ter pri preprostih modelih.
-
-\subsection{Vaje v slogu maturitetnih nalog: potenčna funkcija}
-
-To so izvirne naloge za pripravo na preverjanje znanja, ne uradna vprašanja iz mature 2024.
-\begin{enumerate}
-	\item Za $f(x)=x^5$ in $g(x)=x^4$ primerjaj definicijski območji, zalogi vrednosti, simetriji in monotonost.
-	\item Nariši $h(x)=\frac{1}{x^2}$ in navedi njeni asimptoti. Reši neenačbo $h(x)>1$.
-	\item Graf $y=x^3$ premakni za $2$ enoti levo in $1$ enoto navzdol. Zapiši predpis nove funkcije in preveri njeno lihost.
-\end{enumerate}
 
 \clearpage
-\section{Korenska funkcija}
-\begin{vsebinskiokvir}
 
-Korenska funkcija je funkcija oblike
-\[
-	f(x)=\sqrt[n]{x},
-\]
-kjer je $n$ naravno število. Pri sodem $n$ mora biti $x\geq 0$, zato je $D_f=[0,\infty)$; pri lihem $n$ je $D_f=\mathbb{R}$. Pri sodem korenu so tudi vrednosti nenegativne. Pri lihem korenu je zaloga vrednosti $\mathbb{R}$.
-\end{vsebinskiokvir}
-
-Korenska funkcija je inverzna funkcija ustrezne potenčne funkcije na intervalu, kjer je ta injektivna. 
-Tako je $y=\sqrt{x}$ inverzna funkcija funkcije $y=x^2$, 
-če slednjo omejimo na $[0,\infty)$; grafa sta zrcalni sliki glede na premico $y=x$. 
-Funkcija $y=\sqrt{x}$ je naraščajoča, njena ničla je $0$, graf pa se začne v koordinatnem izhodišču. 
-Funkcija $y=\sqrt[3]{x}$ je liha in strogo naraščajoča na $\mathbb{R}$.
-
-Pri določanju območja sestavljene korenske funkcije zahtevamo, da je izraz pod sodim korenom nenegativen. Na primer,
-\[
-	f(x)=\sqrt{3x-6}\quad\Longrightarrow\quad 3x-6\geq0\quad\Longrightarrow\quad D_f=[2,\infty).
-\]
-
-\subsection{Učni načrt: korenska funkcija}
-
-Dijak/-inja določi definicijsko območje korenske funkcije, razlikuje med sodim in lihim korenskim eksponentom, nariše osnovni graf ter opiše njegovo monotonost in zalogo vrednosti. Razume povezavo med korensko in potenčno funkcijo ter zna reševati enačbe in preproste besedilne naloge s koreni.
-
-\subsection{Vaje v slogu maturitetnih nalog: korenska funkcija}
-
-Naloge so pripravljalne in izvirne; niso uradna vprašanja iz mature 2024.
-\begin{enumerate}
-	\item Določi definicijsko območje in ničlo funkcije $f(x)=\sqrt{5-2x}$.
-	\item Reši enačbo $\sqrt{x+1}=3$ in preveri dobljeno rešitev v začetni enačbi.
-	\item Skiciraj $y=\sqrt[3]{x}$ ter ga primerjaj z grafom $y=x^3$.
-\end{enumerate}
 
 \clearpage
 \section{Nekaj pomembnih družin funkcij}
 \begin{vsebinskiokvir}
 
 \begin{itemize}
+	\small
+	\setlength{\itemsep}{1pt}
 	\item \textbf{Linearna funkcija} $f(x)=kx+n$: graf je premica; $k$ je smerni koeficient, $n=f(0)$.
 	\item \textbf{Kvadratna funkcija} $f(x)=ax^2+bx+c$, $a\ne0$: graf je parabola; njena os simetrije je $x=-\frac{b}{2a}$.
 	\item \textbf{Polinomska funkcija}: vsota členov oblike $a_kx^k$; definirana je za vsa realna števila.
 	\item \textbf{Racionalna funkcija}: količnik polinomov; iz območja izločimo ničle imenovalca.
 	\item \textbf{Eksponentna funkcija} $a^x$, kjer $a>0$ in $a\ne1$: območje vrednosti je $(0,\infty)$; narašča za $a>1$ in pada za $0<a<1$.
 	\item \textbf{Logaritemska funkcija} $\log_a x$: obratna je eksponentni funkciji $a^x$; določena je za $x>0$.
+	\item \textbf{Potenčna funkcija} $x^r$: oblika grafa in definicijsko območje sta odvisna od eksponenta $r$.
+	\item \textbf{Korenska funkcija} $\sqrt[n]{x}$: pri sodem $n$ je določena za $x\geq0$, pri lihem pa za vsa realna $x$.
 \end{itemize}
 \end{vsebinskiokvir}
+
+Spodaj je po en značilen primer posamezne družine; skice ponazarjajo obliko izbranih funkcij, ne vseh funkcij v družini.
+
+\noindent\grafDruzine{Linearna: $y=2x+1$}{-3}{3}{-5}{7}{%
+	\addplot[blue,thick,domain=-3:3]{2*x+1};
+}%
+\hfill
+\grafDruzine{Kvadratna: $y=x^2-2$}{-3}{3}{-2}{8}{%
+	\addplot[blue,thick,domain=-3:3]{x^2-2};
+}\par\smallskip
+
+\noindent\grafDruzine{Polinomska: $y=x^3-x$}{-2}{2}{-4}{4}{%
+	\addplot[blue,thick,domain=-1.8:1.8]{x^3-x};
+}%
+\hfill
+\grafDruzine{Racionalna: $y=\frac{1}{x}$}{-3}{3}{-3}{3}{%
+	\addplot[blue,thick,domain=-3:-0.333,samples=80]{1/x};
+	\addplot[blue,thick,domain=0.333:3,samples=80]{1/x};
+}\par\smallskip
+
+\noindent\grafDruzine{Eksponentna: $y=2^x$}{-3}{3}{-1}{8}{%
+	\addplot[blue,thick,domain=-3:3]{2^x};
+}%
+\hfill
+\grafDruzine{Logaritemska: $y=\log_2 x$}{0}{8}{-4}{4}{%
+	\addplot[blue,thick,domain=0.0625:8]{ln(x)/ln(2)};
+}\par\smallskip
+
+\noindent\grafDruzine{Potenčna: $y=x^{3/2}$}{-0.5}{4}{-1}{8}{%
+	\addplot[blue,thick,domain=0:4]{x^(3/2)};
+}%
+\hfill
+\grafDruzine{Korenska: $y=\sqrt[3]{x}$}{-8}{8}{-2.2}{2.2}{%
+	\addplot[blue,thick,domain=-8:8]{sign(x)*abs(x)^(1/3)};
+}\par\smallskip
 
 \clearpage
 \section{Postopek raziskovanja funkcije}
 
 Pri nalogi o funkciji si pomagamo z naslednjim seznamom:
-\begin{enumerate}
+\begin{enumerate}[leftmargin=*,itemsep=0.45em,topsep=0.4em]
 	\item Določi definicijsko območje $D_f$.
 	\item Izračunaj ničle in začetno vrednost, če obstaja.
 	\item Preveri simetrijo: izračunaj oziroma primerjaj $f(-x)$ in $f(x)$.
@@ -334,7 +436,49 @@ Pri nalogi o funkciji si pomagamo z naslednjim seznamom:
 	\item Poišči omejenost in ekstreme; po potrebi preveri periodičnost.
 	\item Določi značilne točke, nariši graf in iz njega odčitaj zalogo vrednosti.
 \end{enumerate}
-V praksi lastnosti pogosto odčitamo z grafa, v algebrskih nalogah pa jih utemeljimo s predpisom. Pri risanju je pomembno, da je vsaka točka grafa oblike $(x,f(x))$.
+V praksi lastnosti odčitamo z grafa, v algebrskih nalogah pa jih utemeljimo s predpisom. Vsaka točka grafa je oblike $(x,f(x))$.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+	graphstyle,
+	scale only axis,
+	axis equal image,
+	width=8cm,
+	height=3.53cm,
+	xmin=-3.25,xmax=3.25,ymin=-1.6,ymax=1.6,
+	xtick={-3.1416,-1.5708,0,1.5708,3.1416},
+	xticklabels={$-\pi$,$-\frac{\pi}{2}$,0,$\frac{\pi}{2}$,$\pi$},
+	ytick={-1,0,1},
+	tick label style={font=\scriptsize},
+	label style={font=\scriptsize},
+	title={Postopek na primeru $f(x)=\cos x$}
+]
+	\addplot[blue,thick,domain=-3.1416:3.1416,samples=160]{cos(deg(x))};
+	\addplot[green!50!black,very thick,domain=-3.1416:0,samples=60]{cos(deg(x))};
+	\addplot[red,very thick,domain=0:3.1416,samples=60]{cos(deg(x))};
+	\addplot[orange,dashed,thick,domain=-3.2:3.2,samples=2]{1};
+	\addplot[orange,dashed,thick,domain=-3.2:3.2,samples=2]{-1};
+	\addplot[only marks,mark=*,mark size=1.5pt,bordotemno] coordinates {
+		(-1.5708,0) (1.5708,0) (0,1) (-1.0472,0.5) (1.0472,0.5) (-3.1416,-1) (3.1416,-1)
+	};
+	\draw[bordotemno,dashed,thick] (axis cs:-1.0472,0.5) -- (axis cs:1.0472,0.5);
+	\draw[bordotemno,<->,thick] (axis cs:-3.1416,-1.32) -- (axis cs:3.1416,-1.32)
+		node[midway,below,font=\tiny,fill=white] {$T=2\pi$};
+	\draw[bordotemno,<->,thick] (axis cs:-3.1,1.35) -- (axis cs:3.1,1.35);
+	\node[circle,fill=bordotemno,text=white,inner sep=1.5pt,font=\scriptsize\bfseries] at (axis cs:-3.15,1.35) {1};
+	\draw[bordotemno,->,thick] (axis cs:1.95,-0.42) -- (axis cs:1.5708,0);
+	\node[circle,fill=bordotemno,text=white,inner sep=1.5pt,font=\scriptsize\bfseries] at (axis cs:2.05,-0.5) {2};
+	\draw[bordotemno,->,thick] (axis cs:-0.72,0.88) -- (axis cs:-1.0472,0.5);
+	\node[circle,fill=bordotemno,text=white,inner sep=1.5pt,font=\scriptsize\bfseries] at (axis cs:-0.68,0.95) {3};
+	\node[circle,fill=bordotemno,text=white,inner sep=1.5pt,font=\scriptsize\bfseries] at (axis cs:-2.35,-0.75) {4};
+	\node[circle,fill=bordotemno,text=white,inner sep=1.5pt,font=\scriptsize\bfseries] at (axis cs:0.55,1.17) {5};
+	\node[circle,fill=bordotemno,text=white,inner sep=1.5pt,font=\scriptsize\bfseries] at (axis cs:2.8,1.28) {6};
+\end{axis}
+\end{tikzpicture}
+
+\par\smallskip
+\footnotesize Številke na grafu se ujemajo s koraki v besedilu: $1$ označuje prikazani del osi $x$, $2$ ničli in začetno vrednost, $3$ simetrični točki, $4$ predznak in monotonost, $5$ ekstreme ter periodo, $6$ zalogo vrednosti. Graf je prikazan na intervalu $[-\pi,\pi]$, čeprav je $D_f=\mathbb{R}$; zaloga vrednosti je $Z_f=[-1,1]$.
+\end{center}
 
 
 
@@ -344,33 +488,40 @@ V praksi lastnosti pogosto odčitamo z grafa, v algebrskih nalogah pa jih utemel
 Naloge najprej reši brez vpogleda v rešitve. Pri nalogah 6, 7, 9 in 10 so prazni koordinatni sistemi za tvoje skice; grafe nariši sam/-a.
 \begin{enumerate}[itemsep=2.2cm,topsep=0.8em]
 	\item Za $f(x)=2x-3$ izračunaj $f(4)$, določi ničlo in začetno vrednost.
-	\vajaGraf{Premica $y=2x-3$}{-2}{4}{-6}{6}{2*x-3}
+	\vajaGraf{Premica $y=2x-3$}{-6}{6}{-6}{6}{2*x-3}{-6:6}
 	\item Raziskuj $g(x)=x^2-4$: določi območje, ničle, zalogo vrednosti, simetrijo, monotonost in minimum.
-	\vajaGraf{Parabola $y=x^2-4$}{-3}{3}{-5}{5}{x^2-4}
+	\vajaGraf{Parabola $y=x^2-4$}{-5}{5}{-5}{5}{x^2-4}{-5:5}
 	\item Za $h(x)=x^3$ ugotovi, ali je soda ali liha, določi monotonost in povej, ali je omejena.
-	\vajaGraf{Kubična funkcija $y=x^3$}{-2}{2}{-8}{8}{x^3}
+	\vajaGraf{Kubična funkcija $y=x^3$}{-8}{8}{-8}{8}{x^3}{-2:2}
 	\item Za $p(x)=\frac{1}{x-2}$ določi definicijsko območje, ničle, zalogo vrednosti in asimptote. Ali je funkcija omejena?
 	\begin{center}
 	\begin{tikzpicture}
-	\begin{axis}[graphstyle,title={Racionalna funkcija},xmin=-1,xmax=5,ymin=-4,ymax=4]
-	\addplot[blue,thick,domain=-1:1.75]{1/(x-2)};
+	\begin{axis}[
+		graphstyle,
+		scale only axis,
+		axis equal image,
+		width=4.8cm,
+		height=4.8cm,
+		title={Racionalna funkcija},xmin=-5,xmax=5,ymin=-5,ymax=5
+	]
+	\addplot[blue,thick,domain=-5:1.75]{1/(x-2)};
 	\addplot[blue,thick,domain=2.25:5]{1/(x-2)};
-	\addplot[red,dashed,domain=-4:4,samples=2] ({2},{x});
+	\addplot[red,dashed,domain=-5:5,samples=2] ({2},{x});
 	\end{axis}
 	\end{tikzpicture}
 	\end{center}
 	\item Za $q(x)=x^4-5x^2$ določi definicijsko območje, simetrijo, ničle in predznak.
-	\vajaGraf{Soda funkcija $y=x^4-5x^2$}{-2.5}{2.5}{-7}{2}{x^4-5*x^2}
+	\vajaGraf{Soda funkcija $y=x^4-5x^2$}{-7}{7}{-7}{7}{x^4-5*x^2}{-2.5:2.5}
 	\item Zapiši funkcijo, katere graf dobimo iz $y=x^2$ s premikom za $3$ enote desno in $2$ enoti navzgor. Določi njeno najmanjšo vrednost.
-	\prazenKoordinatniSistem{-1}{7}{-2}{12}
+	\prazenKoordinatniSistem{-2}{12}{-2}{12}
 	\item Določi definicijsko območje funkcij $r(x)=\sqrt{2x-6}$ in $s(x)=\frac{x+1}{x^2-9}$.
-	\prazenKoordinatniSistem{0}{8}{0}{4}
-	\prazenKoordinatniSistem{-5}{5}{-3}{3}
+	\prazenKoordinatniSistem{0}{8}{0}{8}
+	\prazenKoordinatniSistem{-5}{5}{-5}{5}
 	\item Ugotovi, ali je $t(x)=x^2+2x$ soda, liha ali niti soda niti liha. Utemelji z izračunom $t(-x)$.
 	\item Premica skozi točki $(0,2)$ in $(3,8)$ je graf linearne funkcije. Zapiši njen predpis in določi ničlo.
-	\prazenKoordinatniSistem{-3}{3}{-4}{9}
+	\prazenKoordinatniSistem{-4}{9}{-4}{9}
 	\item Skiciraj grafa $y=x^2$ in $y=(x-1)^2-2$. Opiši, kako sta povezana.
-	\prazenKoordinatniSistem{-2}{4}{-4}{10}
+	\prazenKoordinatniSistem{-4}{10}{-4}{10}
 \end{enumerate}
 
 \clearpage
@@ -387,5 +538,29 @@ Naloge najprej reši brez vpogleda v rešitve. Pri nalogah 6, 7, 9 in 10 so praz
 	\item Smerni koeficient je $2$, zato je $f(x)=2x+2$; ničla je $x=-1$.
 	\item Drugi graf je prvi premaknjen za $1$ v desno in za $2$ navzdol; vrh je $(1,-2)$, minimum pa $-2$.
 \end{enumerate}
+
+	\clearpage
+	\section*{Rešitve vaj po temah}
+
+	\subsection*{Lastnosti funkcij}
+	\begin{enumerate}
+		\item $f(x)=|x-2|$ ima ničlo $x=2$, zalogo vrednosti $[0,\infty)$, pada na $(-\infty,2]$ in narašča na $[2,\infty)$. Ni soda niti liha.
+		\item $D_g=\mathbb{R}$, $Z_g=(0,1]$, velja $0<g(x)\leq1$, zato je omejena; funkcija je soda.
+		\item $h(x)=(x-2)^2-3$ je konveksna na $\mathbb{R}$ in doseže minimum $-3$ pri $x=2$.
+	\end{enumerate}
+
+	\subsection*{Potenčne funkcije}
+	\begin{enumerate}
+		\item Obe funkciji imata definicijsko območje $\mathbb{R}$. Za $f(x)=x^5$ je zaloga vrednosti $\mathbb{R}$, funkcija je liha in strogo narašča. Za $g(x)=x^4$ je zaloga vrednosti $[0,\infty)$, funkcija je soda, pada na $(-\infty,0]$ in narašča na $[0,\infty)$.
+		\item $D_h=\mathbb{R}\setminus\{0\}$; asimptoti sta $x=0$ in $y=0$. Neenačbo rešimo: $1/x^2>1$ natanko tedaj, ko $0<|x|<1$, torej $x\in(-1,0)\cup(0,1)$.
+		\item Novi predpis je $g(x)=(x+2)^3-1$. Funkcija ni liha, saj $g(0)=7\ne0$.
+	\end{enumerate}
+
+	\subsection*{Korenske funkcije}
+	\begin{enumerate}
+		\item $D_f=(-\infty,\tfrac52]$; ničla je $x=\tfrac52$.
+		\item Pogoj je $x\geq-1$. Po kvadriranju dobimo $x+1=9$, zato je $x=8$; preverjanje da $\sqrt{8+1}=3$.
+		\item Funkciji $y=\sqrt[3]{x}$ in $y=x^3$ sta strogo naraščajoči na $\mathbb{R}$ in sta druga drugi inverzni. Njuna grafa sta zrcalna glede na premico $y=x$.
+	\end{enumerate}
 
 \end{document}
