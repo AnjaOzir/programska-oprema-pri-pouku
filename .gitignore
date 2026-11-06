@@ -6,3 +6,5 @@
 *.out
 *.synctex.gz
 *.toc
+*.venv
+*manim-demo\media
